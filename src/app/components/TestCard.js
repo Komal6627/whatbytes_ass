@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import UpdatedScore from './UpdatedScore'; 
 
-const TestCard = () => {
+const TestCard = ({onSave, newRank, newPercentile, newScore}) => {
   const [showUpdatedScore, setShowUpdatedScore] = useState(false);
-
+  const newResult = {newRank, newPercentile, newScore}
 
   const handleUpdateScore = () => {
     setShowUpdatedScore(true);  
@@ -13,6 +13,11 @@ const TestCard = () => {
 
   const handleCancelUpdateScore = () => {
     setShowUpdatedScore(false); 
+  };
+
+  const handleSaveAndClose = (newRank, newPercentile, newScore) => {
+    onSave(newRank, newPercentile, newScore); // Pass the updated score to the parent
+    setShowUpdatedScore(false); // Close the UpdatedScore component
   };
 
   
@@ -41,7 +46,7 @@ const TestCard = () => {
           </p>
         </div>
       </div>
-      {showUpdatedScore && <UpdatedScore onCancel={handleCancelUpdateScore}  />} {/* Conditionally render UpdatedScore */}
+      {showUpdatedScore && <UpdatedScore onCancel={handleCancelUpdateScore} onSave={handleSaveAndClose} />} {/* Conditionally render UpdatedScore */}
     </>
   );
 };

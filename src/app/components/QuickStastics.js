@@ -17,7 +17,7 @@ const QuickStastics = ({ rank, percentile, score }) => {
                     <GiTrophyCup className="text-xl text-yellow-500" />
                   </div>
                   <div>
-                    <p className="text-xl font-bold text-black">1</p>
+                    <p className="text-xl font-bold text-black">{rank}</p>
                     <p className="text-sm text-gray-500">Your Rank</p>
                   </div>
                 </div>
@@ -28,7 +28,7 @@ const QuickStastics = ({ rank, percentile, score }) => {
                     <PiNotepadDuotone className="text-xl text-yellow-500" />
                   </div>
                   <div>
-                    <p className="text-xl font-bold text-black">30%</p>
+                    <p className="text-xl font-bold text-black">{percentile}</p>
                     <p className="text-sm text-gray-500">Percentile</p>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ const QuickStastics = ({ rank, percentile, score }) => {
                     <FcApproval className="text-xl" />
                   </div>
                   <div>
-                    <p className="text-xl font-bold text-black">10 / 15</p>
+                    <p className="text-xl font-bold text-black">{score} / 15</p>
                     <p className="text-sm text-gray-500">Correct Answers</p>
                   </div>
                 </div>

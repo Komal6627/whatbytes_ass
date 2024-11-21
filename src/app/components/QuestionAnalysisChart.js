@@ -11,7 +11,7 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend, DoughnutController);
 
-const QuestionAnalysis = () => {
+const QuestionAnalysis = ({score}) => {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null); // To track the chart instance
 
@@ -58,7 +58,7 @@ const QuestionAnalysis = () => {
     <div className="question-analysis">
       <div className="flex px-4">
         <h3 className="text-black font-bold text-sm">Question Analysis</h3>
-        <h3 className="text-blue-950">10/15</h3>
+        <h3 className="text-blue-950">{score}/15</h3>
       </div>
 
       <p className="mt-2 text-sm text-gray-500">

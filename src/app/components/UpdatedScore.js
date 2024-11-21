@@ -10,6 +10,9 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
 
   const handleSave = () => {
     onSave(newRank, newPercentile, newScore);
+    console.log("Rank", newRank)
+    console.log("newPercetile", newPercentile)
+    console.log("newScore", newScore)
   };
 
   return (
@@ -36,8 +39,9 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
                     </label>
                     <input
                       type="text"
-                      className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                      className="mt-1 block w-full border border-gray-300 rounded-md p-2  text-black"
                       value={newRank}
+                     
                       onChange={(e) => setNewRank(e.target.value)}
                       onFocus={() => setFocusedField("rank")}
                       onBlur={() => setFocusedField("")}
@@ -63,7 +67,7 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
                     </label>
                     <input
                       type="text"
-                      className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                      className="mt-1 block w-full border border-gray-300 rounded-md p-2  text-black"
                       value={newPercentile}
                       onChange={(e) => setNewPercentile(e.target.value)}
                       onFocus={() => setFocusedField("percentile")}
@@ -91,7 +95,7 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
                     </label>
                     <input
                       type="text"
-                      className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                      className="mt-1 block w-full border border-gray-300 rounded-md p-2  text-black"
                       value={newScore}
                       onChange={(e) => setNewScore(e.target.value)}
                       onFocus={() => setFocusedField("score")}
@@ -120,6 +124,17 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
       </div>
     </div>
   );
+};
+
+
+// Default props
+UpdatedScore.defaultProps = {
+  onSave: () => {
+    console.warn("onSave function not provided!");
+  },
+  onCancel: () => {
+    console.warn("onCancel function not provided!");
+  },
 };
 
 export default UpdatedScore;

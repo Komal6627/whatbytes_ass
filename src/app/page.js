@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function Home() {
   const [rank, setRank] = useState(1);
   const [percentile, setPercentile] = useState(30);
-  const [score, setScore] = useState("10 / 15");
+  const [score, setScore] = useState("10");
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSave = (newRank, newPercentile, newScore) => {
@@ -72,7 +72,7 @@ export default function Home() {
 
   
   <div className="bg-white rounded-lg shadow p-6">
-    <QuestionAnalysis/>
+    <QuestionAnalysis score={score}/>
   </div>
 </div>
 
