@@ -20,7 +20,7 @@ const LineChart = ({ percentile }) => {
         datasets: [
           {
             label: 'Percentile Position',
-            data: [60, 40, 50, 78,68, percentile], // Use the percentile across all data points
+            data: [60, 40, 50, 78, 85, percentile], // Use the percentile across all data points
             borderColor: '#6366F1', // Line color
             backgroundColor: 'rgba(99, 102, 241, 0.2)', // Fill color under the line
             tension: 0.4, // Line smoothing
