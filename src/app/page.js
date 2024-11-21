@@ -58,7 +58,7 @@ export default function Home() {
 
             {/* Comparison Graph */}
             <div className="bg-white rounded-lg shadow p-6">
-              <ComparisonGraph/>
+              <ComparisonGraph percentile={percentile}/>
             </div>
           </div>
 
