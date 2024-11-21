@@ -31,7 +31,7 @@ const QuestionAnalysis = ({score}) => {
         datasets: [
           {
             label: "Answers",
-            data: [10, 5], // Correct and incorrect counts
+            data: [score, 15-score], // Correct and incorrect counts
             backgroundColor: ["#024CAA", "#C5D3E8"], // Colors for the sections
             hoverOffset: 4,
           },
@@ -52,7 +52,7 @@ const QuestionAnalysis = ({score}) => {
         chartInstanceRef.current.destroy();
       }
     };
-  }, []); // Runs only once, when the component mounts
+  }, [score]); // Runs only once, when the component mounts
 
   return (
     <div className="question-analysis">
@@ -64,7 +64,7 @@ const QuestionAnalysis = ({score}) => {
       <p className="mt-2 text-sm text-gray-500">
         <span className="font-bold">
           {" "}
-          You scored <strong>10</strong> questions correct out of{" "}
+          You scored <strong>{score}</strong> questions correct out of{" "}
           <strong>15</strong>.
         </span>{" "}
         However still need improvement
