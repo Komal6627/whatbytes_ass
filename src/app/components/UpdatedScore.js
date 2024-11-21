@@ -7,23 +7,40 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
   const [newPercentile, setNewPercentile] = useState(percentile);
   const [newScore, setNewScore] = useState(score);
   const [focusedField, setFocusedField] = useState("");
+  const [error, setError] = useState("");
 
   const handleSave = () => {
+      setError("");
+
+      if (newRank <= 0) {
+        setError("Rank must be greater than 0.");
+        return;
+      }
+  
+      if (newPercentile < 0 || newPercentile > 100) {
+        setError("Percentile must be between 0 and 100.");
+        return;
+      }
+  
+      if (newScore > 15) {
+        setError("Score should not be greater than 15.");
+        return;
+      }
+
+
     onSave(newRank, newPercentile, newScore);
-    console.log("Rank", newRank)
-    console.log("newPercetile", newPercentile)
-    console.log("newScore", newScore)
+    console.log("Rank", newRank);
+    console.log("newPercentile", newPercentile);
+    console.log("newScore", newScore);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
       <div className="bg-white rounded-lg shadow-lg p-8 w-[600px] relative">
         <div className="absolute top-4 right-4">
           <img src="/assets/html_logo.png" alt="HTML5 logo" className="w-12 h-12" />
         </div>
         <h2 className="text-2xl text-black font-bold mb-6">Update scores</h2>
-
-        {/* Table for form inputs */}
         <table className="table-auto w-full">
           <tbody>
             {/* Rank Field */}
@@ -41,7 +58,6 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
                       type="text"
                       className="mt-1 block w-full border border-gray-300 rounded-md p-2  text-black"
                       value={newRank}
-                     
                       onChange={(e) => setNewRank(e.target.value)}
                       onFocus={() => setFocusedField("rank")}
                       onBlur={() => setFocusedField("")}
@@ -82,7 +98,7 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
               </td>
             </tr>
 
-            {/* Current Score Field */}
+            {/*  Score Field */}
             <tr>
               <td className="w-1/6 text-center">
                 <div className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full">3</div>
@@ -126,8 +142,6 @@ const UpdatedScore = ({ rank = "", percentile = "", score = "", onSave, onCancel
   );
 };
 
-
-// Default props
 UpdatedScore.defaultProps = {
   onSave: () => {
     console.warn("onSave function not provided!");

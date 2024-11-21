@@ -16,7 +16,6 @@ const ComparisonGraph = ({percentile}) => {
         </div>
       </div>
       <div className="mt-4 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-        <p className="text-gray-500">Graph goes here</p>
         <LineChart />
       </div>
     </>
